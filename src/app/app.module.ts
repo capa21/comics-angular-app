@@ -1,24 +1,28 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { SearchComponent } from './components/header/search/search.component';
-import { FilterComponent } from './components/header/filter/filter.component';
+import { FilterListComponent } from './components/header/filters-list/filters-list.component';
 import { ComicsListComponent } from './components/main/comics-list/comics-list.component';
 import { ComicItemComponent } from './components/main/comic-item/comic-item.component';
+import { FilterItemComponent } from './components/header/filter-item/filter-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
-    FilterComponent,
+    FilterListComponent,
     ComicsListComponent,
-    ComicItemComponent
+    ComicItemComponent,
+    FilterItemComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

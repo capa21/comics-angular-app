@@ -1,3 +1,6 @@
+.filter-item {
+  margin-bottom: 1rem;
+}
 .filter {
   background-color: blue;
   width: 100%;
@@ -8,5 +11,4 @@
 .filter-character, .filter-price {
   height: 40%;
   background-color: white;
-
 }

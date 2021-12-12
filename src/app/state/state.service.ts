@@ -1,6 +1,7 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Comic } from '../models/comic';
+import { FilterList } from '../models/filters';
 import { ComicsService } from '../services/comics/comics.service';
 
 @Injectable({
@@ -8,8 +9,9 @@ import { ComicsService } from '../services/comics/comics.service';
 })
 export class StateService {
   private comicsList: Comic[] = [];
-  private creatorsList: string[] = [];
-  private charactersList: string[] = [];
+  private comicsListFiltered: Comic[] = [];
+  private filtersList: FilterList = { characters: [], creators: [], prices: [] };
+  changeComicsListFiltered$: EventEmitter<Comic[]> = new EventEmitter();
 
   constructor(private comicsService: ComicsService) { }
 
@@ -17,18 +19,34 @@ export class StateService {
     this.comicsService.getComics()
       .subscribe((data: any[]) => {
         this.comicsList = data.map((comic: any) => {
-          const filteredData = {
+          const transformedData = {
             'characters': comic.characters.items.map((item: any) => item.name),
-            'creator': comic.creators.items[0]?.name,
+            'creator': comic.creators.items[0]?.name ? comic.creators.items[0]?.name: '',
             'price': comic.prices[0].price,
             'title': comic.title,
             'srcImage': `${comic.thumbnail.path}.${comic.thumbnail.extension}`
           }
-          return filteredData;
+          return transformedData;
         });
-        this.setCreatorsList();
-        this.setCharactersList();
+        this.setFilters();
+        this.setGlobalInformation();
+        console.log('this.comicsList: ', this.comicsList);
+        //TODO: Asignar la imagen según el dispositivo (tamaño) que carga la app
       })
+  }
+
+  private setFilters() {
+    this.comicsListFiltered = [...this.comicsList];
+    this.setCharactersList();
+    this.setCreatorsList();
+    this.setPricesList();
+  }
+  private setCharactersList(): void {
+    let charactersList: string [] = [];
+    this.comicsList.forEach((comic: Comic) => {
+      charactersList = charactersList.concat(comic.characters);
+      this.filtersList.characters = Array.from(new Set(charactersList));
+    })
   }
 
   private setCreatorsList(): void {
@@ -38,18 +56,47 @@ export class StateService {
         creatorsList.push(comic.creator);
       }
     })
-    this.creatorsList = Array.from(new Set(creatorsList));
-    console.log('this.creatorsList: ', this.creatorsList);
+    this.filtersList.creators = Array.from(new Set(creatorsList));
   }
 
-  private setCharactersList(): void {
-    let charactersList: string [] = [];
+  private setPricesList(): void {
+    let pricesList: string [] = [];
     this.comicsList.forEach((comic: Comic) => {
-      charactersList = charactersList.concat(comic.characters);
-      this.charactersList = Array.from(new Set(charactersList));
+      pricesList.push(comic.price.toString());
     })
-    console.log('this.charactersList: ', this.charactersList);
+    this.filtersList.prices = Array.from(new Set(pricesList));
   }
 
+  setGlobalInformation(): void {
+    this.comicsList.forEach((comic: Comic) => comic.globalInformation = `${comic.title} ${comic.price.toString()} ${comic.characters.join(' ')} ${comic.creator}`)
+  }
+
+  public filterByCreator(creator: string): void {
+    this.comicsListFiltered = [...this.comicsList];
+    this.comicsListFiltered = this.comicsListFiltered.filter((comic: Comic) => comic.creator === creator);
+    this.changeComicsListFiltered$.emit(this.comicsListFiltered);
+  }
+
+  public filterByCharacter(character: string): void {
+    this.comicsListFiltered = [...this.comicsList];
+    this.comicsListFiltered = this.comicsListFiltered.filter((comic: Comic) => comic.characters.includes(character));
+    this.changeComicsListFiltered$.emit(this.comicsListFiltered);
+  }
+
+  public filterByPrice(price: number): void {
+    this.comicsListFiltered = [...this.comicsList];
+    this.comicsListFiltered = this.comicsListFiltered.filter((comic: Comic) => comic.price === price);
+    this.changeComicsListFiltered$.emit(this.comicsListFiltered);
+  }
+
+  public filterByGlobalInformation(textFilter: string): void {
+    this.comicsListFiltered = [...this.comicsList];
+    this.comicsListFiltered = this.comicsListFiltered.filter((comic: Comic) => comic.globalInformation?.includes(textFilter));
+    this.changeComicsListFiltered$.emit(this.comicsListFiltered);
+  }
+
+  public getFiltersList(): FilterList {
+    return this.filtersList;
+  }
 
 }
