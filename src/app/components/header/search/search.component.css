@@ -1,0 +1,12 @@
+.search {
+  background-color: Lime;
+  height: 3rem;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-input {
+  width: 90%;
+}
