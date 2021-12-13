@@ -1,6 +1,9 @@
 export interface Comic {
   title: string,
-  srcImage: string,
+  srcImageMobile: string,
+  srcImageMedium?: string,
+  srcImageLarge?: string,
+  srcSetImages: string,
   price: number,
   globalInformation?: string,
   creator: string,

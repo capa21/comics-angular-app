@@ -1,6 +1,13 @@
 <div class="card">
   <header class="card-header">
-    <img class="card-header-img" [src]="comic.srcImage" alt="comic">
+    <img class="card-header-img"
+    alt="comic"
+    [src]="comic.srcImageMobile"
+    [srcset]="comic.srcSetImages"
+    sizes="(max-width: 320px) 280px,
+        (max-width: 480px) 440px,
+        800px"
+    >
   </header>
   <body class="card-body">
     <h1 class="card-body-title">{{comic.title}}</h1>

@@ -7,7 +7,16 @@ import { Comic } from 'src/app/models/comic';
   styleUrls: ['./comic-item.component.css']
 })
 export class ComicItemComponent implements OnInit {
-  @Input() comic: Comic = { title: '', characters: [], creator: '', price: 0, srcImage: '' };
+  @Input() comic: Comic = {
+    title: '',
+    characters: [],
+    creator: '',
+    price: 0,
+    srcImageMobile: '',
+    srcImageMedium: '',
+    srcImageLarge: '',
+    srcSetImages: ''
+  };
 
   constructor() { }
 

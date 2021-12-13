@@ -1,5 +1,4 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Comic } from '../models/comic';
 import { FilterList } from '../models/filters';
 import { ComicsService } from '../services/comics/comics.service';
@@ -24,7 +23,10 @@ export class StateService {
             'creator': comic.creators.items[0]?.name ? comic.creators.items[0]?.name: '',
             'price': comic.prices[0].price,
             'title': comic.title,
-            'srcImage': `${comic.thumbnail.path}.${comic.thumbnail.extension}`
+            'srcImageMobile': `${comic.thumbnail.path}/portrait_xlarge.${comic.thumbnail.extension}`,
+            'srcImageMedium': `${comic.thumbnail.path}/portrait_fantastic.${comic.thumbnail.extension}`,
+            'srcImageLarge': `${comic.thumbnail.path}/portrait_incredible.${comic.thumbnail.extension}`,
+            'srcSetImages': `${comic.thumbnail.path}/portrait_xlarge.${comic.thumbnail.extension} 320w,${comic.thumbnail.path}/portrait_fantastic.${comic.thumbnail.extension} 480w,${comic.thumbnail.path}/portrait_incredible.${comic.thumbnail.extension} 800w`
           }
           return transformedData;
         });
