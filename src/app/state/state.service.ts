@@ -31,6 +31,7 @@ export class StateService {
         this.setFilters();
         this.setGlobalInformation();
         console.log('this.comicsList: ', this.comicsList);
+        this.changeComicsListFiltered$.emit(this.comicsListFiltered);
         //TODO: Asignar la imagen según el dispositivo (tamaño) que carga la app
       })
   }

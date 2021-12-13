@@ -1,1 +1,12 @@
-<p>comic-item works!</p>
+<div class="card">
+  <header class="card-header">
+    <img class="card-header-img" [src]="comic.srcImage" alt="comic">
+  </header>
+  <body class="card-body">
+    <h1 class="card-body-title">{{comic.title}}</h1>
+    <h2 class="card-body-creator">{{comic.creator}}</h2>
+  </body>
+  <footer class="card-footer">
+    <h2 class="card-footer-price">{{comic.price}}</h2>
+  </footer>
+</div>
