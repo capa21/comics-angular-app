@@ -1,7 +1,19 @@
-<header>
-  <app-search></app-search>
-  <app-filter-list></app-filter-list>
-</header>
-<main>
-  <app-comics-list></app-comics-list>
-</main>
+<div class="wrapper">
+  <header class="wrapper-header">
+    <div class="wrapper-header-logo">
+      <img src="../assets/ComicStoreMobile.png" alt="logo"
+        srcset="../assets/ComicStoreMobile.png 68w, ../assets/ComicStore.png 225w"
+        sizes="(max-width: 575px) 68px, (max-width: 991px) 225px">
+    </div>
+    <div class="wrapper-header-title">
+      <h1 class="wrapper-header-title-name">Comics Store</h1>
+      <app-search class="wrapper-header-title-search"></app-search>
+    </div>
+  </header>
+  <nav class="wrapper-nav">
+    <app-filter-list></app-filter-list>
+  </nav>
+  <main class="wrapper-main">
+    <app-comics-list></app-comics-list>
+  </main>
+</div>

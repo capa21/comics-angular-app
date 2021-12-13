@@ -1,12 +1,20 @@
 .search {
-  background-color: Lime;
+  background-color: var(--header-title-color);
   height: 3rem;
-  padding: 5px;
+  padding: 0.2rem;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  border-radius: 0.7rem;
+}
+.search-input {
+  width: 100%;
+  border-radius: 0.7rem;
 }
 
-.search-input {
-  width: 90%;
+.search-input::placeholder {
+  font-family: "Font Awesome 5 Free"; font-weight: 700;
+  content: 'Hola'
+}
+
+.search-input:focus {
+  outline: none;
 }

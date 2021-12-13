@@ -1,0 +1,10 @@
+.comics-list-title {
+  font-size: var(--secondary-size-mobile);
+  color: var(--filters-color);
+}
+
+.comics-list-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}

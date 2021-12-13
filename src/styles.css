@@ -1,7 +1,28 @@
 @import '~normalize.css';
+
+:root {
+  --primary-size:2rem;
+  --secondary-size-mobile:1.8rem;
+  --general-color:  Black;
+  --filters-color: DimGray;
+  --header-title-color: Gold;
+  --main-color: DarkSlateGray;
+  --comic-title-color:  Crimson;
+  --comic-title-size: 1.4rem;
+  --comic-creator-color: DimGray;
+  --comic-creator-size: 1rem;
+  --comic-price-color: Khaki;
+  --comic-price-size: 1.3rem;
+}
+
+html {
+  font-size: 62.5%;
+  background-color: var(--general-color);
+}
 body {
   font-family: 'Source Sans 3', sans-serif;
   box-sizing: border-box;
+  padding: 0.5rem;
 }
 
 
