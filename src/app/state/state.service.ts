@@ -15,6 +15,7 @@ export class StateService {
   constructor(private comicsService: ComicsService) { }
 
   initializeState(): void {
+    const expRegHttps = /http/gi
     this.comicsService.getComics()
       .subscribe((data: any[]) => {
         this.comicsList = data.map((comic: any) => {
@@ -23,10 +24,10 @@ export class StateService {
             'creator': comic.creators.items[0]?.name ? comic.creators.items[0]?.name: '',
             'price': comic.prices[0].price,
             'title': comic.title,
-            'srcImageMobile': `${comic.thumbnail.path}/portrait_xlarge.${comic.thumbnail.extension}`,
-            'srcImageMedium': `${comic.thumbnail.path}/portrait_fantastic.${comic.thumbnail.extension}`,
-            'srcImageLarge': `${comic.thumbnail.path}/portrait_incredible.${comic.thumbnail.extension}`,
-            'srcSetImages': `${comic.thumbnail.path}/portrait_xlarge.${comic.thumbnail.extension} 320w,${comic.thumbnail.path}/portrait_fantastic.${comic.thumbnail.extension} 480w,${comic.thumbnail.path}/portrait_incredible.${comic.thumbnail.extension} 800w`
+            'srcImageMobile': `${comic.thumbnail.path}/portrait_xlarge.${comic.thumbnail.extension}`.replace(expRegHttps, 'https'),
+            'srcImageMedium': `${comic.thumbnail.path}/portrait_fantastic.${comic.thumbnail.extension}`.replace(expRegHttps, 'https'),
+            'srcImageLarge': `${comic.thumbnail.path}/portrait_incredible.${comic.thumbnail.extension}`.replace(expRegHttps, 'https'),
+            'srcSetImages': `${comic.thumbnail.path}/portrait_xlarge.${comic.thumbnail.extension} 320w,${comic.thumbnail.path}/portrait_fantastic.${comic.thumbnail.extension} 480w,${comic.thumbnail.path}/portrait_incredible.${comic.thumbnail.extension} 800w`.replace(expRegHttps, 'https')
           }
           return transformedData;
         });
@@ -34,7 +35,6 @@ export class StateService {
         this.setGlobalInformation();
         console.log('this.comicsList: ', this.comicsList);
         this.changeComicsListFiltered$.emit(this.comicsListFiltered);
-        //TODO: Asignar la imagen según el dispositivo (tamaño) que carga la app
       })
   }
 
