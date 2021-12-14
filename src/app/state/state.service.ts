@@ -98,6 +98,11 @@ export class StateService {
     this.changeComicsListFiltered$.emit(this.comicsListFiltered);
   }
 
+  public reloadOriginalsComics(): void {
+    this.comicsListFiltered = [...this.comicsList];
+    this.changeComicsListFiltered$.emit(this.comicsListFiltered);
+  }
+
   public getFiltersList(): FilterList {
     return this.filtersList;
   }

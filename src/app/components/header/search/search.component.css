@@ -4,16 +4,14 @@
   gap: 0.5rem;
   width: 100%;
 }
+
 .container-title_search {
   display: flex;
   flex-direction: column;
-  width: 100%;
 }
 .container-title_search-title {
-  font-size: 2.8rem;
   color: var(--header-title-color);
   margin: 0 0 0.5rem 0;
-
 }
 .container-title_search-search {
   background-color: var(--header-title-color);
@@ -29,13 +27,48 @@
 
 .container-title_search-search input::placeholder {
   font-family: "Font Awesome 5 Free"; font-weight: 700;
-  content: 'Hola'
 }
 
 .container-title_search-search input:focus {
   outline: none;
 }
 
+@media screen and (max-width: 767px) {
+  .container-title_search-title {
+    font-size: 2.8rem;
+  }
+  .container-logo img {
+    height: 68px;
+  }
+}
+
 @media screen and (min-width: 768px) {
+  .container {
+    grid-template-columns: 22rem 1fr;
+    gap: 2rem;
+  }
+
+  .container-logo img {
+    height: 225px;
+  }
+
+  .container-title_search {
+    vertical-align: middle;
+  }
+  .container-title_search-title {
+    font-size: 8rem;
+  }
+
+  .container-title_search-search {
+    height: 5rem;
+    padding: 0.3rem;
+    border-radius: 1rem;
+  }
+
+  .container-title_search-search input {
+    border-radius: 1rem;
+    padding: 1rem;
+    font-size: 1.5rem;
+  }
 
 }

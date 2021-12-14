@@ -22,4 +22,7 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  reloadOriginalsComics() {
+    this.state.reloadOriginalsComics();
+  }
 }
