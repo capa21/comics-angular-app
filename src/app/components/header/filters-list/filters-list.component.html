@@ -1,0 +1,7 @@
+<section *ngFor="let item of filtersList | keyvalue">
+  <app-filter-item
+  [filterKey]="item.key"
+  [filterValues]="item.value"
+  (filterValue)="filterState($event)">
+  </app-filter-item>
+</section>

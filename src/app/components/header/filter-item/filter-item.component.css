@@ -1,0 +1,44 @@
+.section-filter {
+  margin-top: 1.2rem;
+}
+.section-filter-title {
+  color: var(--filters-color);
+  font-size: 2.2rem;
+}
+.section-filter-container {
+  display: flex;
+  scroll-snap-type: x mandatory;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.section-filter-container button {
+  flex: 0 0 10%;
+  width: auto;
+  scroll-snap-align: center;
+  margin-right: 5px;
+  border: none;
+  border-radius: 15px;
+  padding: 10px;
+  color: black;
+  font-weight:bolder;
+}
+
+@media screen and (max-width: 767px) {
+  .section-filter-container {
+    max-width: 97vw;
+  }
+  .section-filter-container button {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .section-filter-container {
+    max-width: 80vw;
+  }
+  .section-filter-container button {
+    font-size: 2rem;
+  }
+
+}

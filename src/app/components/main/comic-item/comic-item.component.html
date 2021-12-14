@@ -1,0 +1,19 @@
+<div class="card">
+  <header class="card-header">
+    <img class="card-header-img"
+    alt="comic"
+    [src]="comic.srcImageMobile"
+    [srcset]="comic.srcSetImages"
+    sizes="(max-width: 575px) 280px,
+        (max-width: 991px) 440px,
+        992px"
+    >
+  </header>
+  <main class="card-body">
+    <h1 class="card-body-title">{{comic.title}}</h1>
+    <h2 class="card-body-creator">{{comic.creator}}</h2>
+  </main>
+  <footer class="card-footer">
+    <h2 class="card-footer-price">{{comic.price |currency}}</h2>
+  </footer>
+</div>

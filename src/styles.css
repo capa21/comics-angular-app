@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~normalize.css';
+
+:root {
+  --general-color:  Black;
+  --filters-color: DimGray;
+  --header-title-color: Gold;
+  --main-color: DarkSlateGray;
+  --comic-title-color:  Crimson;
+  --comic-title-size: 1.4rem;
+  --comic-creator-color: DimGray;
+  --comic-creator-size: 1rem;
+  --comic-price-color: Khaki;
+  --comic-price-size: 1.3rem;
+}
+
+html {
+  font-size: 62.5%;
+  background-color: var(--general-color);
+}
+body {
+  font-family: 'Source Sans 3', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 0;
+}

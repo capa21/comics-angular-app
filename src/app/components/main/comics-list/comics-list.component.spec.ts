@@ -1,16 +1,15 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { AppComponent } from './app.component';
-import { ComicsService } from './services/comics/comics.service';
-import { StateService } from './state/state.service';
+import { ComicsService } from 'src/app/services/comics/comics.service';
+import { StateService } from 'src/app/state/state.service';
 
-describe('AppComponent', () => {
+import { ComicsListComponent } from './comics-list.component';
+
+describe('ComicsListComponent', () => {
   beforeEach(async () => {
     let stateService: StateService
     await TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
+      declarations: [ComicsListComponent],
       imports: [HttpClientTestingModule],
       providers: [
         StateService,
@@ -20,8 +19,10 @@ describe('AppComponent', () => {
     stateService = TestBed.inject(StateService);
   });
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+
+
+  it('should create', () => {
+   const fixture = TestBed.createComponent(ComicsListComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });

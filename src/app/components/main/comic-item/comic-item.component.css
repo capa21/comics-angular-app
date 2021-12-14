@@ -1,0 +1,34 @@
+.card {
+  border: 0.2rem solid white;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+.card-header {
+  display: flex;
+  justify-content: center;
+}
+
+.card-header-img {
+  text-align: center;
+}
+
+
+.card-body-title {
+  color: var(--comic-title-color);
+  font-size: var(--comic-title-size);
+}
+
+.card-body-creator {
+  color: var(--comic-creator-color);
+  font-size: var(--comic-creator-size);
+}
+
+.card-footer {
+  display: flex;
+  justify-content:right;
+}
+.card-footer-price {
+  color: var(--comic-price-color);
+  font-size: var(--comic-price-size);
+}
