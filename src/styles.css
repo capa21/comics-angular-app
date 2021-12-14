@@ -1,8 +1,6 @@
 @import '~normalize.css';
 
 :root {
-  --primary-size:2rem;
-  --secondary-size-mobile:1.8rem;
   --general-color:  Black;
   --filters-color: DimGray;
   --header-title-color: Gold;

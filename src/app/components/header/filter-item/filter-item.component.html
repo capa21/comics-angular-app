@@ -1,4 +1,6 @@
-<h2 class="title">{{title}}</h2>
-<section class="section-filter">
-  <button *ngFor="let item of filterValues" (click)="sendInformation(item)">{{item}}</button>
-</section>
+<div class="section-filter">
+  <h2 class="section-filter-title">{{title}}</h2>
+  <section class="section-filter-container">
+    <button *ngFor="let item of filterValues" (click)="sendInformation(item)">{{item}}</button>
+  </section>
+</div>

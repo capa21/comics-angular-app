@@ -10,7 +10,7 @@
   width: 100%;
 }
 .container-title_search-title {
-  font-size: var(--primary-size);
+  font-size: 2.8rem;
   color: var(--header-title-color);
   margin: 0 0 0.5rem 0;
 

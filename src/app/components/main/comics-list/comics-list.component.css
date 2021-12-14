@@ -1,5 +1,8 @@
+.comics-list {
+  margin-top: 1.5rem;
+}
 .comics-list-title {
-  font-size: var(--secondary-size-mobile);
+  font-size: 2.5rem;
   color: var(--filters-color);
 }
 
@@ -7,4 +10,5 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.5rem;
+  margin-top: 1rem;
 }
