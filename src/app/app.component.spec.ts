@@ -1,13 +1,23 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { ComicsService } from './services/comics/comics.service';
+import { StateService } from './state/state.service';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
+    let stateService: StateService
     await TestBed.configureTestingModule({
       declarations: [
         AppComponent
       ],
+      imports: [HttpClientTestingModule],
+      providers: [
+        StateService,
+        ComicsService
+      ]
     }).compileComponents();
+    stateService = TestBed.inject(StateService);
   });
 
   it('should create the app', () => {
@@ -15,17 +25,4 @@ describe('AppComponent', () => {
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
-
-  // it(`should have as title 'commics-app'`, () => {
-  //   const fixture = TestBed.createComponent(AppComponent);
-  //   const app = fixture.componentInstance;
-  //   expect(app.title).toEqual('commics-app');
-  // });
-
-  // it('should render title', () => {
-  //   const fixture = TestBed.createComponent(AppComponent);
-  //   fixture.detectChanges();
-  //   const compiled = fixture.nativeElement as HTMLElement;
-  //   expect(compiled.querySelector('.content span')?.textContent).toContain('commics-app app is running!');
-  // });
 });

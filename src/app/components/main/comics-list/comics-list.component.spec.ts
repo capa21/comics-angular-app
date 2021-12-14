@@ -1,25 +1,29 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { TestBed } from '@angular/core/testing';
+import { ComicsService } from 'src/app/services/comics/comics.service';
+import { StateService } from 'src/app/state/state.service';
 
 import { ComicsListComponent } from './comics-list.component';
 
 describe('ComicsListComponent', () => {
-  let component: ComicsListComponent;
-  let fixture: ComponentFixture<ComicsListComponent>;
-
   beforeEach(async () => {
+    let stateService: StateService
     await TestBed.configureTestingModule({
-      declarations: [ ComicsListComponent ]
-    })
-    .compileComponents();
+      declarations: [ComicsListComponent],
+      imports: [HttpClientTestingModule],
+      providers: [
+        StateService,
+        ComicsService
+      ]
+    }).compileComponents();
+    stateService = TestBed.inject(StateService);
   });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(ComicsListComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+   const fixture = TestBed.createComponent(ComicsListComponent);
+    const app = fixture.componentInstance;
+    expect(app).toBeTruthy();
   });
 });

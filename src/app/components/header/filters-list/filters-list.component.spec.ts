@@ -1,4 +1,7 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComicsService } from 'src/app/services/comics/comics.service';
+import { StateService } from 'src/app/state/state.service';
 
 import { FilterListComponent } from './filters-list.component';
 
@@ -8,7 +11,12 @@ describe('FilterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FilterListComponent ]
+      declarations: [FilterListComponent],
+      imports: [HttpClientTestingModule],
+      providers: [
+        StateService,
+        ComicsService
+      ]
     })
     .compileComponents();
   });

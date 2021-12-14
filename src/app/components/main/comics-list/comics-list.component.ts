@@ -17,8 +17,7 @@ export class ComicsListComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.comicsListFilteredSubscription = this.state.changeComicsListFiltered$
       .subscribe((comicsList: Comic[]) => {
-        this.comicsListFiltered = comicsList
-        console.log('comicsListFiltered: ', this.comicsListFiltered);
+        this.comicsListFiltered = comicsList;
       });
   }
 
