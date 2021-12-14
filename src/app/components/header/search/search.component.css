@@ -35,3 +35,7 @@
 .container-title_search-search input:focus {
   outline: none;
 }
+
+@media screen and (min-width: 768px) {
+
+}

@@ -11,7 +11,7 @@
   overflow-x: scroll;
   overflow-y: hidden;
   align-items: center;
-  max-width: 30rem;
+  max-width: 100%;
   padding-left: 1rem;
 }
 

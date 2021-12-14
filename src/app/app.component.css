@@ -1,5 +1,6 @@
 .wrapper {
   padding: 1rem;
+  max-width: 100vw;
   display: grid;
   /*grid-template-rows: 10rem 20rem 1fr;*/
   grid-template-columns: 1fr;
@@ -7,12 +8,14 @@
         "header"
         "nav"
         "main";
+
 }
 .wrapper-header {
   grid-area: header;
 }
 .wrapper-nav {
   grid-area: nav;
+  max-width: 95vw;
 }
 .wrapper-main {
   grid-area: main;
