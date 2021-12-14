@@ -33,7 +33,6 @@ export class StateService {
         });
         this.setFilters();
         this.setGlobalInformation();
-        console.log('this.comicsList: ', this.comicsList);
         this.changeComicsListFiltered$.emit(this.comicsListFiltered);
       })
   }
@@ -106,5 +105,4 @@ export class StateService {
   public getFiltersList(): FilterList {
     return this.filtersList;
   }
-
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Comic } from './models/comic';
 import { StateService } from './state/state.service';
 
 @Component({
@@ -7,9 +8,12 @@ import { StateService } from './state/state.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  constructor(private stateService: StateService) { }
+  comicList: Comic[] = [];
+  constructor(public state: StateService) {
+    this.state.initializeState();
+  }
 
-  ngOnInit(): void {
-    this.stateService.initializeState();
+  ngOnInit() {
+    this.state.initializeState()
   }
 }

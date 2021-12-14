@@ -9,6 +9,7 @@ import { FilterListComponent } from './components/header/filters-list/filters-li
 import { ComicsListComponent } from './components/main/comics-list/comics-list.component';
 import { ComicItemComponent } from './components/main/comic-item/comic-item.component';
 import { FilterItemComponent } from './components/header/filter-item/filter-item.component';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FilterItemComponent } from './components/header/filter-item/filter-item
     FilterListComponent,
     ComicsListComponent,
     ComicItemComponent,
-    FilterItemComponent
+    FilterItemComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
