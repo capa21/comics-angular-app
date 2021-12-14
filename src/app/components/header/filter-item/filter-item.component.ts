@@ -1,7 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FilterInformation } from 'src/app/models/filters';
-
-
+import { FilterInformation, FilterValue } from 'src/app/models/filters';
 
 @Component({
   selector: 'app-filter-item',
@@ -9,7 +7,7 @@ import { FilterInformation } from 'src/app/models/filters';
   styleUrls: ['./filter-item.component.css']
 })
 export class FilterItemComponent implements OnInit {
-
+  title: string = '';
   @Input() filterKey: string = '';
   @Input() filterValues: string[] = [];
   @Output() filterValue: EventEmitter<FilterInformation> = new EventEmitter();
@@ -17,6 +15,15 @@ export class FilterItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    if (this.filterKey === FilterValue.characters) {
+      this.title = 'Personajes'
+    }
+    if (this.filterKey === FilterValue.creators) {
+      this.title = 'Creadores'
+    }
+    if (this.filterKey === FilterValue.prices) {
+      this.title = 'Precios'
+    }
   }
 
   sendInformation(filterValue: string) {

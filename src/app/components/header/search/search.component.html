@@ -1,3 +1,13 @@
-<div class="search">
-  <input type="search" [formControl]="searchCtrl" class="search-input" placeholder="">
+<div class="container">
+  <div class="container-logo">
+    <img src="../assets/ComicStoreMobile.png" alt="logo"
+      srcset="../assets/ComicStoreMobile.png 68w, ../assets/ComicStore.png 225w"
+      sizes="(max-width: 575px) 68px, (max-width: 991px) 225px">
+  </div>
+  <div class="container-title_search">
+    <h1 class="container-title_search-title">Comics Store</h1>
+    <div class="container-title_search-search">
+      <input type="search" [formControl]="searchCtrl" placeholder="">
+    </div>
+  </div>
 </div>

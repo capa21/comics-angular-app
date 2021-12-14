@@ -21,9 +21,10 @@ html {
 }
 body {
   font-family: 'Source Sans 3', sans-serif;
-  box-sizing: border-box;
-  padding: 0.5rem;
 }
 
-
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}

@@ -1,20 +1,37 @@
-.search {
+.container {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: 0.5rem;
+  width: 100%;
+}
+.container-title_search {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.container-title_search-title {
+  font-size: var(--primary-size);
+  color: var(--header-title-color);
+  margin: 0 0 0.5rem 0;
+
+}
+.container-title_search-search {
   background-color: var(--header-title-color);
   height: 3rem;
   padding: 0.2rem;
   display: flex;
   border-radius: 0.7rem;
 }
-.search-input {
+.container-title_search-search input {
   width: 100%;
   border-radius: 0.7rem;
 }
 
-.search-input::placeholder {
+.container-title_search-search input::placeholder {
   font-family: "Font Awesome 5 Free"; font-weight: 700;
   content: 'Hola'
 }
 
-.search-input:focus {
+.container-title_search-search input:focus {
   outline: none;
 }

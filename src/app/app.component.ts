@@ -9,16 +9,6 @@ import { StateService } from './state/state.service';
 export class AppComponent implements OnInit {
   constructor(private stateService: StateService) { }
 
-  comics: any = [{}];
-  characters: any = {};
-  creators: any = {};
-
-  filtersList = {
-    ch: ['a', 'b', 'c'],
-    cr: ['d', 'e', 'f'],
-    p: [0,1,2]
-  }
-
   ngOnInit(): void {
     this.stateService.initializeState();
   }
